@@ -6,10 +6,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+/**
+ * Created by jt on 2019-05-17.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,14 +37,17 @@ public class Beer {
 
     @UpdateTimestamp
     private Timestamp lastModifiedDate;
+
     private String beerName;
     private String beerStyle;
 
-    @Column(updatable = true)
+    @Column(unique = true)
     private Long upc;
+
     private BigDecimal price;
 
     private Integer minOnHand;
     private Integer quantityToBrew;
+
 
 }

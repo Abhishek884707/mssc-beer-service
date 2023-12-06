@@ -1,11 +1,13 @@
 package org.mourya.msscbeerservice.repositories;
 
 import org.mourya.msscbeerservice.domain.Beer;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-@Repository
-public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
+/**
+ * Created by jt on 2019-05-17.
+ */
+public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID>, CrudRepository<Beer, UUID> {
 }

@@ -1,6 +1,5 @@
 package org.mourya.msscbeerservice.web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mourya.msscbeerservice.web.model.BeerDto;
@@ -15,7 +14,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
-public class BookControllerTest {
+public class BeerControllerTest {
 
     @Autowired
     MockMvc mockMvc;
