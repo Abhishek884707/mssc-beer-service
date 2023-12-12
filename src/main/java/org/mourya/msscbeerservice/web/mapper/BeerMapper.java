@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.web.model.BeerDto;
 
-@Mapper
+@Mapper(uses = DateMapper.class)
 public interface BeerMapper {
 
     BeerDto BeerToBeerDto(Beer beer);
