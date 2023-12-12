@@ -5,6 +5,7 @@ import net.bytebuddy.matcher.ElementMatchers;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
+import org.mourya.msscbeerservice.bootstrap.BeerLoader;
 import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.services.BeerService;
 import org.mourya.msscbeerservice.web.model.BeerDto;
@@ -50,7 +51,7 @@ class BeerControllerTest {
         BeerDto beerDto = BeerDto.builder()
                 .beerName("BeerName")
                 .beerStyle(BeerStyleEnum.ALE)
-                .upc(123123123L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .price(new BigDecimal("12.99"))
                 .build();
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
@@ -70,7 +71,7 @@ class BeerControllerTest {
         BeerDto beerDto = BeerDto.builder()
                 .beerName("BeerName")
                 .beerStyle(BeerStyleEnum.ALE)
-                .upc(123123123L)
+                .upc(BeerLoader.BEER_2_UPC)
                 .price(new BigDecimal("12.99"))
                 .build();
         String beerDtoJson = objectMapper.writeValueAsString(beerDto);
@@ -89,7 +90,7 @@ class BeerControllerTest {
                 .beerName("My Beer")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.99"))
-                .upc(1231234123L)
+                .upc(BeerLoader.BEER_3_UPC)
                 .build();
     }
 
