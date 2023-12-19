@@ -18,6 +18,27 @@
 		<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
 		<jaxb.version>2.3.0</jaxb.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-core</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.xml.bind</groupId>
+				<artifactId>jaxb-impl</artifactId>
+				<version>${jaxb.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,18 +104,16 @@
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>${jaxb.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-core</artifactId>
-			<version>${jaxb.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>${jaxb.version}</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
