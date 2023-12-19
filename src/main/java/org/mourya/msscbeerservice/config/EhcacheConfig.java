@@ -6,6 +6,7 @@ import org.ehcache.config.builders.ExpiryPolicyBuilder;
 import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.ehcache.config.units.MemoryUnit;
 import org.ehcache.jsr107.Eh107Configuration;
+import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.web.model.BeerDto;
 import org.mourya.msscbeerservice.web.model.BeerPagedList;
 import org.springframework.cache.annotation.EnableCaching;
@@ -33,6 +34,15 @@ public class EhcacheConfig {
                 .withExpiry(ExpiryPolicyBuilder.timeToIdleExpiration(Duration.ofSeconds(120)))
                 .build();
 
+        CacheConfiguration<String, BeerDto> cachecConfigForUpc = CacheConfigurationBuilder
+                .newCacheConfigurationBuilder(String.class,
+                        BeerDto.class,
+                        ResourcePoolsBuilder.newResourcePoolsBuilder()
+                                .offheap(1, MemoryUnit.MB)
+                                .build())
+                .withExpiry(ExpiryPolicyBuilder.timeToIdleExpiration(Duration.ofSeconds(120)))
+                .build();
+
         CacheConfiguration<Object, BeerPagedList> cachecConfigForList = CacheConfigurationBuilder
                 .newCacheConfigurationBuilder(Object.class,
                     BeerPagedList.class,
@@ -48,9 +58,11 @@ public class EhcacheConfig {
 
 
         javax.cache.configuration.Configuration<UUID, BeerDto> configuration = Eh107Configuration.fromEhcacheCacheConfiguration(cachecConfig);
+        javax.cache.configuration.Configuration<String, BeerDto> configurationForUpc = Eh107Configuration.fromEhcacheCacheConfiguration(cachecConfigForUpc);
         javax.cache.configuration.Configuration<Object, BeerPagedList> configurationForList = Eh107Configuration.fromEhcacheCacheConfiguration(cachecConfigForList);
         cacheManager.createCache("beerCache", configuration);
         cacheManager.createCache("beerListCache", configurationForList);
+        cacheManager.createCache("beerUpcCache", configurationForUpc);
         return cacheManager;
     }
 }
