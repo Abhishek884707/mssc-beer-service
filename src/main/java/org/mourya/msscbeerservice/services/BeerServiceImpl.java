@@ -1,6 +1,7 @@
 package org.mourya.msscbeerservice.services;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.repositories.BeerRepository;
 import org.mourya.msscbeerservice.web.controller.NotFoundException;
@@ -8,6 +9,7 @@ import org.mourya.msscbeerservice.web.mapper.BeerMapper;
 import org.mourya.msscbeerservice.web.model.BeerDto;
 import org.mourya.msscbeerservice.web.model.BeerPagedList;
 import org.mourya.msscbeerservice.web.model.BeerStyleEnum;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.UUID;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class BeerServiceImpl implements BeerService {
@@ -23,8 +26,11 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
 
 
+    @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false")
     @Override
     public BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyleEnum, PageRequest pageRequest, Boolean showInventoryOnHand) {
+
+        log.info("I was called.");
 
         BeerPagedList beerPagedList;
         Page<Beer> beerPage;
@@ -68,7 +74,11 @@ public class BeerServiceImpl implements BeerService {
         return beerPagedList;
     }
 
+    @Cacheable(cacheNames = "beerCache", key = "#beerId", condition = "#showInventoryOnHand == false")
     public BeerDto getById(UUID beerId, Boolean showInventoryOnHand){
+
+        log.info("I was called.");
+
         if(Boolean.TRUE.equals(showInventoryOnHand)){
             return beerMapper.beerToBeerDtoWithInventory(beerRepository.findById(beerId).orElseThrow(NotFoundException::new));
         }else{
