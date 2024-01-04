@@ -5,14 +5,13 @@ import org.mourya.msscbeerservice.web.model.BeerStyleEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
 /**
  * Created by jt on 2019-05-17.
  */
-public interface BeerRepository extends JpaRepository<Beer, UUID>, CrudRepository<Beer, UUID> {
+public interface BeerRepository extends JpaRepository<Beer, UUID> {
     Page<Beer> findAllByBeerNameAndBeerStyle(String beerName, BeerStyleEnum beerStyleEnum, PageRequest pageRequest);
     Page<Beer> findAllByBeerName(String beerName, PageRequest pageRequest);
 

@@ -1,10 +1,10 @@
-package org.mourya.msscbeerservice.services;
+package org.mourya.msscbeerservice.services.brewing;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mourya.msscbeerservice.config.JmsConfig;
 import org.mourya.msscbeerservice.domain.Beer;
-import org.mourya.msscbeerservice.events.BrewBeerEvent;
+import org.mourya.common.events.BrewBeerEvent;
 import org.mourya.msscbeerservice.repositories.BeerRepository;
 import org.mourya.msscbeerservice.services.inventory.BeerInventoryService;
 import org.mourya.msscbeerservice.web.mapper.BeerMapper;
