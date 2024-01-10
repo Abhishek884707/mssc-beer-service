@@ -1,4 +1,4 @@
-package org.mourya.msscbeerservice.web.model;
+package org.mourya.brewery.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;

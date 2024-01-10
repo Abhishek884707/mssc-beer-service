@@ -2,7 +2,7 @@ package org.mourya.msscbeerservice.bootstrap;
 
 import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.repositories.BeerRepository;
-import org.mourya.msscbeerservice.web.model.BeerStyleEnum;
+import org.mourya.brewery.model.BeerStyleEnum;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

@@ -2,7 +2,7 @@ package org.mourya.msscbeerservice.web.mapper;
 
 import org.mourya.msscbeerservice.domain.Beer;
 import org.mourya.msscbeerservice.services.inventory.BeerInventoryService;
-import org.mourya.msscbeerservice.web.model.BeerDto;
+import org.mourya.brewery.model.BeerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BeerMapperDecorator implements BeerMapper{

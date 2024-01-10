@@ -1,7 +1,7 @@
-package org.mourya.common.events;
+package org.mourya.brewery.model.events;
 
 import lombok.NoArgsConstructor;
-import org.mourya.msscbeerservice.web.model.BeerDto;
+import org.mourya.brewery.model.BeerDto;
 
 @NoArgsConstructor
 public class BrewBeerEvent extends BeerEvent {

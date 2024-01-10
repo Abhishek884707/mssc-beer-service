@@ -1,7 +1,7 @@
 package org.mourya.msscbeerservice.repositories;
 
 import org.mourya.msscbeerservice.domain.Beer;
-import org.mourya.msscbeerservice.web.model.BeerStyleEnum;
+import org.mourya.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;

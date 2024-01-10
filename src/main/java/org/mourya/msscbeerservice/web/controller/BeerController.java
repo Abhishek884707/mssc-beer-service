@@ -2,9 +2,9 @@ package org.mourya.msscbeerservice.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.mourya.msscbeerservice.services.BeerService;
-import org.mourya.msscbeerservice.web.model.BeerDto;
-import org.mourya.msscbeerservice.web.model.BeerPagedList;
-import org.mourya.msscbeerservice.web.model.BeerStyleEnum;
+import org.mourya.brewery.model.BeerDto;
+import org.mourya.brewery.model.BeerPagedList;
+import org.mourya.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

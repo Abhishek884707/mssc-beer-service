@@ -1,7 +1,7 @@
-package org.mourya.common.events;
+package org.mourya.brewery.model.events;
 
 import lombok.*;
-import org.mourya.msscbeerservice.web.model.BeerDto;
+import org.mourya.brewery.model.BeerDto;
 
 import java.io.Serializable;
 
