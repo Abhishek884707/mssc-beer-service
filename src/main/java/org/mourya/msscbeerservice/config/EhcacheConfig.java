@@ -51,9 +51,12 @@ public class EhcacheConfig {
                 .withExpiry(ExpiryPolicyBuilder.timeToIdleExpiration(Duration.ofSeconds(120)))
                 .build();
 
+        return getCacheManager(cachecConfig, cachecConfigForUpc, cachecConfigForList);
+    }
+
+    private static CacheManager getCacheManager(CacheConfiguration<UUID, BeerDto> cachecConfig, CacheConfiguration<String, BeerDto> cachecConfigForUpc, CacheConfiguration<Object, BeerPagedList> cachecConfigForList) {
         CachingProvider cachingProvider = Caching.getCachingProvider();
         CacheManager cacheManager = cachingProvider.getCacheManager();
-
 
 
         javax.cache.configuration.Configuration<UUID, BeerDto> configuration = Eh107Configuration.fromEhcacheCacheConfiguration(cachecConfig);
