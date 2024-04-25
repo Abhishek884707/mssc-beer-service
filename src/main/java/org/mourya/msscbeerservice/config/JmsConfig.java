@@ -14,7 +14,7 @@ public class JmsConfig {
     public static final String NEW_INVENTORY_QUEUE = "new-inventory";
 
     public static final String VALIDATE_ORDER_QUEUE = "validate-order";
-    public static final String VALIDATE_ORDER_RESPONSE_QUEUE = "validate-order-response";
+    public static final String VALIDATE_ORDER_RESPONSE_QUEUE = "validate-order-result";
     @Bean// Serialize message content to json using TextMessage
     public MessageConverter messageConverter(ObjectMapper objectMapper){
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
