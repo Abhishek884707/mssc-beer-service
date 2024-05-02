@@ -12,7 +12,9 @@ import java.util.UUID;
 @FeignClient(name = "inventory-service")
 public interface InventoryServiceFeignClient {
 
+
     @RequestMapping(method = RequestMethod.GET, path = BeerInventoryServiceRestTemplateImpl.INVENTORY_PATH)
     ResponseEntity<List<BeerInventoryDto>> getOnHandInventory(@PathVariable UUID beerId);
+
 
 }
